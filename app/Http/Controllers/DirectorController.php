@@ -14,7 +14,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        //
+        $directors = Director::all();
+        return view('admin.directors.index', compact('directors'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DirectorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.directors.create');
     }
 
     /**
@@ -35,51 +36,54 @@ class DirectorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Director::create($request->all());
+        return redirect()->route('directors.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Director  $director
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Director $director)
+    public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Director  $director
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Director $director)
     {
-        //
+        return view('admin.directors.edit', compact('directors'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Director  $director
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Director $director)
     {
-        //
+        $director->update($request->all());
+        return redirect()->route('directors.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Director  $director
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Director $director)
     {
-        //
+        $director->delete();
+        return redirect()->route('directors.index');
     }
 }

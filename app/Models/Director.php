@@ -9,5 +9,9 @@ class Director extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description'];
+    protected $fillable = ['name'];
+
+    public function movies(){
+        return $this->hasMany(Movie::class);
+    }
 }

@@ -43,10 +43,10 @@ class DirectorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Director $director)
     {
         return abort(404);
     }
@@ -54,19 +54,19 @@ class DirectorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
     public function edit(Director $director)
     {
-        return view('admin.directors.edit', compact('directors'));
+        return view('admin.directors.edit', compact('director'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Director $director)
@@ -78,7 +78,7 @@ class DirectorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
     public function destroy(Director $director)

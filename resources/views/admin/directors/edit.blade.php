@@ -9,8 +9,8 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="description">Descricao</label>
-            <input type="text" name="description" id="description" class="form-control" value="{{$director->description}}" required>
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" class="form-control" value="{{$director->name}}" required>
         </div>
         <div class="form-group">
             <input type="submit" value="Salvar" class="btn btn-success">

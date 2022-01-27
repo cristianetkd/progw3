@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('genres.index');
 });
 
 Route::get('/teste/{nome}', function ($nome){
@@ -34,4 +34,9 @@ Route::prefix('admin')->group(function (){
     Route::resource('genres', \App\Http\Controllers\GenreController::class);
     Route::resource('directors', \App\Http\Controllers\DirectorController::class);
     Route::resource('languages', \App\Http\Controllers\LanguageController::class);
+    Route::resource('countries', \App\Http\Controllers\CountryController::class);
+    Route::resource('movies', \App\Http\Controllers\MovieController::class);
 });
+
+Route::get('vitrine', [\App\Http\Controllers\VitrineController::class, 'index']);
+Route::get('vitrine/{movie}', [\App\Http\Controllers\VitrineController::class, 'showmovie'])->name('vitrine.showmovie');

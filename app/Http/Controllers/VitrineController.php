@@ -10,11 +10,12 @@ class VitrineController extends Controller
 {
 
     public function index(){
-        $genres = Genre::all();
-        return view('vitrine.index', compact('genres'));
+        $home= Home::all();
+        return view('layout.blade.php', compact('home'));
     }
 
-    public function showmovie(Movie $movie){
+    public function showmovie(Movie $movie): \never
+    {
         return dd($movie);
     }
 }

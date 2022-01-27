@@ -49,6 +49,8 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    protected $namespace = 'App\\Http\\Controllers';
+
     /**
      * Configure the rate limiters for the application.
      *
